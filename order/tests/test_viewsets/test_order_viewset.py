@@ -17,6 +17,7 @@ class TestOrderViewSet(APITestCase):
         self.category = CategoryFactory(title='technology')
         self.product = ProductFactory(title='mouse', price=100, category=[self.category])
         self.order = OrderFactory(product=[self.product])
+        self.client.force_authenticate(user=self.order.user)
 
     def test_order(self):
         response = self.client.get(
