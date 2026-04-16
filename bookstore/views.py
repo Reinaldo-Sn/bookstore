@@ -1,5 +1,4 @@
 from django.http import HttpResponse
-from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
 
 import git
@@ -23,5 +22,4 @@ def update(request):
 
 
 def hello_world(request):
-  template = loader.get_template('hello_world.html')
-  return HttpResponse(template.render())
+    return HttpResponse("<h1>Bookstore API</h1><p>Acesse <a href='/bookstore/v1/order/'>/bookstore/v1/order/</a></p>")
